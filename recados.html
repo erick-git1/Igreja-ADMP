@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recados da Igreja</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Recados da Igreja</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Página Inicial</a></li>
+                <li><a href="cadastro.html">Cadastro de Membros</a></li>
+                <li><a href="recados.html">Recados</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="form-recado">
+            <h2>Adicionar Novo Recado</h2>
+            <form id="formRecado" action="#" method="POST">
+                <label for="titulo">Título do Recado:</label>
+                <input type="text" id="titulo" name="titulo" required>
+
+                <label for="mensagem">Mensagem:</label>
+                <textarea id="mensagem" name="mensagem" rows="5" required></textarea>
+
+                <button type="submit">Adicionar Recado</button>
+            </form>
+        </section>
+
+        <section id="recados">
+            <h2>Recados Recentes</h2>
+            <div id="lista-recados">
+                <!-- Recados serão exibidos aqui -->
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Igreja [Nome da Igreja]. Todos os direitos reservados.</p>
+    </footer>
+
+    <script>
+        // Função para adicionar recados ao DOM (página)
+        document.getElementById('formRecado').addEventListener('submit', function(event) {
+            event.preventDefault(); // Previne o envio do formulário
+
+            // Obtém os dados do formulário
+            const titulo = document.getElementById('titulo').value;
+            const mensagem = document.getElementById('mensagem').value;
+
+            // Cria um novo elemento para o recado
+            const recadoDiv = document.createElement('div');
+            recadoDiv.classList.add('recado');
+
+            const recadoTitulo = document.createElement('h3');
+            recadoTitulo.textContent = titulo;
+
+            const recadoMensagem = document.createElement('p');
+            recadoMensagem.textContent = mensagem;
+
+            const recadoData = document.createElement('small');
+            const dataAtual = new Date().toLocaleString();
+            recadoData.textContent = `Postado em: ${dataAtual}`;
+
+            // Adiciona o título, a mensagem e a data ao recado
+            recadoDiv.appendChild(recadoTitulo);
+            recadoDiv.appendChild(recadoMensagem);
+            recadoDiv.appendChild(recadoData);
+
+            // Adiciona o recado à lista de recados
+            document.getElementById('lista-recados').appendChild(recadoDiv);
+
+            // Limpa o formulário após o envio
+            document.getElementById('formRecado').reset();
+        });
+    </script>
+</body>
+</html>
