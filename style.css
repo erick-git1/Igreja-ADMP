@@ -13,7 +13,7 @@ body {
 }
 
 header {
-    background-color: #0066cc;
+    background-color: #740000;
     color: white;
     padding: 20px;
     text-align: center;
@@ -92,7 +92,7 @@ form button:hover {
 
 .recado h3 {
     font-size: 1.5em;
-    color: #0066cc;
+    color: #740000;
 }
 
 .recado p {
