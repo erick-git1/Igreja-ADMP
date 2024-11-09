@@ -89,10 +89,10 @@
         </section>
 
         <!-- Div para mostrar a mensagem de sucesso -->
-        <section id="sucesso" style="display:none;">
-            <h3>Cadastro Concluído com Sucesso!</h3>
+        <div class="success-message" id="successMessage">
+            <p>Cadastro realizado com sucesso!</p>
             <p>Obrigado por se cadastrar na nossa igreja. Estamos felizes em tê-lo como parte da nossa comunidade.</p>
-        </section>
+        </div>
 
     </main>
 
@@ -101,15 +101,15 @@
     </footer>
 
     <script>
-        // Previne o envio do formulário e mostra a mensagem de sucesso
-        document.getElementById('formCadastro').addEventListener('submit', function(event) {
-            event.preventDefault(); // Previne o envio do formulário para o servidor
+        // Função para mostrar a mensagem de sucesso
+        function showSuccessMessage() {
+            document.getElementById("messageSuccess").style.display = "block";
+        }
 
-            // Exibe a seção de sucesso
-            document.getElementById('sucesso').style.display = 'block';
-
-            // Oculta o formulário
-            document.getElementById('form-cadastro').style.display = 'none';
+        // Manipulador de envio do formulário
+        document.getElementById("formCadastro").addEventListener("submit", function(event) {
+            event.preventDefault();  // Impede o envio do formulário real
+            showSuccessMessage();    // Exibe a mensagem de sucesso
         });
     </script>
 
